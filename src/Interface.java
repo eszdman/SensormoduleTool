@@ -1,0 +1,37 @@
+public class Interface {
+    int WidthRes;
+    int HeightRes;
+    int wInd;
+    int hInd;
+    int CapStart;
+    int regAstart;
+    int LineL;
+    int FrameL;
+    int relativeWidthInd;
+    int relativeHeightInd;
+    int relativeLineL;
+    int relativeFrameL;
+    short bincap1;
+    short bincap2;
+    int relativeBInd;
+    long pixelclockCap;
+    int relativepInd;
+    double FpsCap;
+    int relativefInd;
+    short modeCap;
+    //int relativemInd;
+    int regsize;
+    int varsize;
+    int line;
+    int fline;
+    int lineskip;
+    int lineshift;
+    int regstart;
+    String naming;
+    byte[] bytes;
+    String name;
+    String dir;
+    String[] regname;
+    String[] regvalue;
+    int last;
+}

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SensormoduleTool:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SensormoduleTool_jar</output-path>
+    <root id="archive" name="SensormoduleTool.jar">
+      <element id="module-output" name="SensormoduleTool" />
+    </root>
+  </artifact>
+</component>
