@@ -61,6 +61,7 @@ public class Regs {
     }
     public static void Read(Interface inter)
     {
+        System.out.println("ReadRegs: "+inter.regvalue.length);
         Properties props = new Properties();
         File regs = new File(inter.naming+".txt");
         try {

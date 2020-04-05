@@ -1,10 +1,10 @@
-import com.sun.xml.internal.ws.api.message.saaj.SaajStaxWriter;
+import sun.security.mscapi.CKeyPairGenerator;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.interfaces.RSAPrivateKey;
 
 public class HexOps {
     private static String ChangeDecimal(String value) {
@@ -85,8 +85,11 @@ public class HexOps {
         if(RegB) inter.line = s;
         return out;
     }
+    private static int ReadInt(Interface inter, int ind){
+        return Hex2Int(ChangeDecimal(Byte2String(inter.bytes[inter.regAstart + ind]) + Byte2String(inter.bytes[inter.regAstart + ind + 1])));
+    }
     public static void GetCaps(Interface inter) {
-        inter.HeightRes = Hex2Int(ChangeDecimal(Byte2String(inter.bytes[inter.regAstart + inter.relativeHeightInd]) + Byte2String(inter.bytes[inter.regAstart + inter.relativeHeightInd + 1])));
+        inter.HeightRes = ReadInt(inter,inter.relativeHeightInd);
         inter.WidthRes = Hex2Int(ChangeDecimal(Byte2String(inter.bytes[inter.regAstart + inter.relativeWidthInd]) + Byte2String(inter.bytes[inter.regAstart + inter.relativeWidthInd + 1])));
         int ind = inter.CapStart + inter.relativeFrameL;
         inter.FrameL = Hex2Int(ChangeDecimal(Byte2String(inter.bytes[ind]) + Byte2String(inter.bytes[ind + 1])));
@@ -127,7 +130,7 @@ public class HexOps {
     }
     private static void SaveDouble(Interface inter, double integ, int index){
         for(int l =0; l<8;l++) {
-            inter.bytes[index + l] = String2Byte(Double2Hex(inter.FpsCap))[l];
+            inter.bytes[index + l] = String2Byte(Double2Hex(integ))[l];
         }
     }
     private static void SaveCaps(Interface inter){
@@ -166,6 +169,7 @@ public class HexOps {
         }
     }
     public static void SafeRegs(Interface inter) {
+        System.out.println("SafeRegs: "+inter.regname.length);
         File f = new File(inter.dir, inter.name);
         Path path = f.toPath();
         BytePath(inter);

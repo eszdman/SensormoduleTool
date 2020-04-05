@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         File getDir = new File("");
         System.out.println(getDir.getAbsolutePath());
-        //File lib = new File("C:\\Users\\eszdman\\IdeaProjects\\SensormoduleTool\\"+ "com.qti.sensormodule.semco_imx586.bin");
+        //File lib = new File("E:\\JavaProjects\\SensormoduleTool\\out\\artifacts\\SensormoduleTool_jar\\"+ "com.qti.sensormodule.semco_imx586.bin");
         File lib = new File(args[0]);
         Interface inter = new Interface();
         Configurator.CreateProps(lib.getName());
